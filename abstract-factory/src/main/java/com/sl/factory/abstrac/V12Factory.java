@@ -1,5 +1,7 @@
 package com.sl.factory.abstrac;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * @author shuliangzhao
  * @Title: V12Factory
@@ -8,18 +10,14 @@ package com.sl.factory.abstrac;
  * @date 2019/5/28 0:08
  */
 public class V12Factory implements CarFactory {
-    @Override
-    public Car createAudiBlackCar() {
-        return new V12AudiBlackCar();
-    }
 
     @Override
-    public Car createAudiRedCar() {
-        return new V12AudiRedCar();
-    }
-
-    @Override
-    public Car createAudiWhiteCar() {
-        return new V12AudiWhiteCar();
+    public Car createCar(String color) {
+        if (StringUtils.equals("black",color)) {
+            return new V12AudiBlackCar();
+        } else  if (StringUtils.equals("red",color)) {
+            return new V12AudiRedCar();
+        }
+        return null;
     }
 }
